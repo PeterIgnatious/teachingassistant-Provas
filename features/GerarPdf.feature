@@ -1,9 +1,15 @@
-Scenario: Gerar PDF sem dados necessários
+Scenario 1: Gerar PDF sem dados necessários
     Given que o usuário não possui todos os dados necessários
     When o usuário solicitar a geração do PDF
     Then o sistema deve informar que não é possível gerar o documento.
 
-Scenario: Gerar PDF de uma prova com gabarito
+Scenario 2: Gerar PDF de uma prova com gabarito
   Given que o usuário possui uma prova cadastrada e um gabarito definido
   When o usuário solicitar a geração do PDF
   Then o sistema deve gerar um arquivo PDF contendo a prova e seu gabarito
+
+Scenario 3: Erro durante a geração do PDF
+  Given que o usuário possui todos os dados necessários
+  When ocorrer um erro durante a geração do PDF
+  Then o sistema deve informar que ocorreu um erro
+  And o sistema não deve disponibilizar um PDF incompleto
