@@ -13,3 +13,9 @@ Scenario 3: Erro durante a geração do PDF
   When ocorrer um erro durante a geração do PDF
   Then o sistema deve informar que ocorreu um erro
   And o sistema não deve disponibilizar um PDF incompleto
+
+Scenario 4: Cancelar a geração do PDF
+  Given que o usuário iniciou a geração de um PDF
+  When o usuário cancelar a operação
+  Then o sistema deve interromper a geração
+  And o sistema não deve disponibilizar um novo documento
